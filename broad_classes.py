@@ -87,6 +87,7 @@ def broadClass(phone, removeStress=True, htkSafe=False):
     removeStress: if True, the output symbol will not include stress markers
     HTKsafe: if True, return symbols that are compatible with HTK
     """
+    stress=''
     # remove and set aside stress information
     if phone[:2] == '""':
         stress = '""'
