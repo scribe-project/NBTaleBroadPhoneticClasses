@@ -1,5 +1,5 @@
 # NBTaleBroadPhoneticClasses
-Definition of broad phonetic classes for phone recognition on the NB Tale corpus
+Definition of broad phonetic classes for phone recognition on the NB Tale corpus. NOTE: this is work in progress: refer to the Perl scripts in NTNUMods instead for the time being.
 
 ## Data preparation
 the initial definition of the dictionary in `broad_classes.py` was obtained with the following command (in the NB Tale root directory)
