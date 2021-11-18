@@ -1,6 +1,7 @@
 # broadClasses converts the original phonetic inventory used in NB Tale transcription to a set of broader phonetic classes that can be used for phonetic classification
 
-broadClasses =  {
+
+sampa2htk = {
     # HTK safe symbols
     '{': 'ae',
     '{:': 'ae:',
@@ -16,17 +17,20 @@ broadClasses =  {
     'n`': 'rn',
     'l`': 'rl',
     's`': 'rs',
-    # reductions (Vowels)
-    'U': 'ou',
-    '3:': 'oe:',
-    'V': 'oe:',
-    'I': 'i',
     '@': 'eh',
+}
+
+broadClasses =  {
+    # reductions (Vowels)
+    'U': '}',
+    '3:': '2:',
+    'V': '2:',
+    'I': 'i',
     # reductions (Diphtongs)
-    'aU': 'oev',
-    '@U': 'oev',
-    '2}': 'oev',
-    'eI': 'ei',
+    'aU': 'A}',
+    '@U': 'A}',
+    '2}': 'A}',
+    'eI': '{i',
     '}i': 'Oy',
     'ui': 'Oy',
     # reductions (Plosives)
@@ -54,10 +58,10 @@ broadClasses =  {
     'r`': 'l',
     # reductions (syllabic consonants)
     'l_=': 'l',
-    'l`_=': 'rl',
+    'l`_=': 'l`',
     'm_=': 'm',
     'n_=': 'n',
-    'n`_=': 'rn',
+    'n`_=': 'n`',
     '4_=': 'r',
     'J_=': 'n',
     'L_=': 'l',
@@ -65,7 +69,7 @@ broadClasses =  {
     'N_=': 'N',
     'r\\_=': 'r',
     's_=': 's',
-    't`_=': 'rt',
+    't`_=': 't`',
     'v_=': 'v',
     # non verbal
     '<start>': 'sil',
@@ -78,12 +82,13 @@ broadClasses =  {
     '<fp>': 'spk'
     }
 
-def broadClass(phone, removeStress=True):
+def broadClass(phone, removeStress=True, HTKsafe=False):
     """
     broadClass: converts the phonetic inventory used in NB Tale to broader phonetic classes
 
     phone: input phonetic symbol including stress markers
     removeStress: if True, the output symbol will not include stress markers
+    HTKsafe: if True, return symbols that are compatible with HTK
     """
     # remove and set aside stress information
     if phone[:2] == '""':
@@ -97,6 +102,8 @@ def broadClass(phone, removeStress=True):
         phone = phone[1:]
     if phone in broadClasses.keys():
         phone = broadClasses[phone]
+    if HTKsafe and phone in sampa2htk.keys():
+        phone = sampa2htk[phone]
     if removeStress:
         return phone
     return stress+phone

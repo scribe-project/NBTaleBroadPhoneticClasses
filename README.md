@@ -6,9 +6,10 @@ Definition of broad phonetic classes for phone recognition on the NB Tale corpus
 from broad_classes import *
 NBTaleSymbols
 len(NBTaleSymbols)
-simplifiedSymbols = [broadClass(sym) for sym in NBTaleSymbols]
-uniqueSimplifiedSymbols = list(set(simplifiedSymbols))
-len(uniqueSimplifiedSymbols)
+simplifiedSymbols = list(set([broadClass(sym) for sym in NBTaleSymbols]))
+len(simplifiedSymbols)
+simplifiedSymbolsHTK = list(set([broadClass(sym, HTKsafe=True) for sym in NBTaleSymbols]))
+len(simplifiedSymbolsHTK)
 ```
 
 ## Data preparation
