@@ -8,7 +8,7 @@ NBTaleSymbols
 len(NBTaleSymbols)
 simplifiedSymbols = list(set([broadClass(sym) for sym in NBTaleSymbols]))
 len(simplifiedSymbols)
-simplifiedSymbolsHTK = list(set([broadClass(sym, HTKsafe=True) for sym in NBTaleSymbols]))
+simplifiedSymbolsHTK = list(set([broadClass(sym, htkSafe=True) for sym in NBTaleSymbols]))
 len(simplifiedSymbolsHTK)
 ```
 

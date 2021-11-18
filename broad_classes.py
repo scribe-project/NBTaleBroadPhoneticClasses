@@ -1,6 +1,3 @@
-# broadClasses converts the original phonetic inventory used in NB Tale transcription to a set of broader phonetic classes that can be used for phonetic classification
-
-
 sampa2htk = {
     # HTK safe symbols
     '{': 'ae',
@@ -21,24 +18,24 @@ sampa2htk = {
 }
 
 broadClasses =  {
-    # reductions (Vowels)
+    # Vowels
     'U': '}',
     '3:': '2:',
     'V': '2:',
     'I': 'i',
-    # reductions (Diphtongs)
+    # Diphtongs
     'aU': 'A}',
     '@U': 'A}',
     '2}': 'A}',
     'eI': '{i',
     '}i': 'Oy',
     'ui': 'Oy',
-    # reductions (Plosives)
+    # Plosives
     'c': 'C',
     'J\\': 'd',
-    # reductions (glottal stop)
+    # glottal stop
     '?': '',
-    # reductions (fricatives and approximants)
+    # fricatives and approximants
     'w': 'O',
     'z': 's',
     'Z': 'S',
@@ -48,15 +45,15 @@ broadClasses =  {
     'T': 'f',
     'D': 'd',
     'x': 'h',
-    # reductions (Nasals, laterals and trills)
+    # Nasals, laterals and trills
     '4': 'r',
     'R': 'r',
     'r\\': 'r',
     'J': 'n',
     'L': 'l',
-    # reductions (retroflex)
+    # retroflex
     'r`': 'l',
-    # reductions (syllabic consonants)
+    # syllabic consonants
     'l_=': 'l',
     'l`_=': 'l`',
     'm_=': 'm',
@@ -82,7 +79,7 @@ broadClasses =  {
     '<fp>': 'spk'
     }
 
-def broadClass(phone, removeStress=True, HTKsafe=False):
+def broadClass(phone, removeStress=True, htkSafe=False):
     """
     broadClass: converts the phonetic inventory used in NB Tale to broader phonetic classes
 
@@ -102,7 +99,7 @@ def broadClass(phone, removeStress=True, HTKsafe=False):
         phone = phone[1:]
     if phone in broadClasses.keys():
         phone = broadClasses[phone]
-    if HTKsafe and phone in sampa2htk.keys():
+    if htkSafe and phone in sampa2htk.keys():
         phone = sampa2htk[phone]
     if removeStress:
         return phone
