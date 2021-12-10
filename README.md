@@ -9,6 +9,21 @@ cat Annotation/part_1.trans Annotation/part_2.trans | gawk '{print $3}' | sort -
 
 ## Usage
 copy the definition from `broad_classes.py` or import them into your code and then use, for example:
-```
+```python
 broadClasses['""eI']
 ```
+## pip installation 
+You can now access the convert.py functionality from other directories via pip installing this package locally. From the command line navigate to this directory and run 
+```
+pip install .
+```
+
+It can then be used like so 
+```python
+from broad_classes_converter.convert import convert
+
+print(convert('}i'))
+```
+
+
+

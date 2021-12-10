@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "broad_classes_converter"
+version = "1.0.0"
+description = "Convert NB Tale transcripts to broad phonetic classes "
+authors = ["Giampiero Salvi <giampiero.salvi@ntnu.no>", "Per Erik Solberg <per.solberg@nb.no>", "Phoebe Parsons <phoebe.l.t.parsons@ntnu.no>"]
+readme = "README.md"
+license = "Apache-2.0"
+repository = "https://github.com/scribe-project/NBTaleBroadPhoneticClasses/"
+include = ["LICENCE"]
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
